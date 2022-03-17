@@ -2,7 +2,6 @@ package com.edestudos.edestudos.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,15 +14,10 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
     private Long id;
-    @Column(name="NAME")
     private String name;
-    @Column(name="EMAIL")
     private String email;
-    @Column(name="PHONE")
     private String phone;
-    @Column(name="PASSWORD")
     private String password;
 
     public User(Long id, String name, String email, String phone, String password) {
