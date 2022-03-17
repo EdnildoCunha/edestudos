@@ -2,6 +2,7 @@ package com.edestudos.edestudos.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,14 +15,18 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "email")
     private String email;
+    @Column(name = "phone")
     private String phone;
+    @Column(name = "password")
     private String password;
 
     public User(Long id, String name, String email, String phone, String password) {
-        super();
         this.id = id;
         this.name = name;
         this.email = email;
@@ -94,5 +99,7 @@ public class User implements Serializable {
         return true;
     }
 
-    
+    public User(){
+
+    }
 }
