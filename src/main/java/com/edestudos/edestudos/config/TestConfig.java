@@ -6,6 +6,7 @@ import java.util.Arrays;
 import com.edestudos.edestudos.entities.Category;
 import com.edestudos.edestudos.entities.Order;
 import com.edestudos.edestudos.entities.OrderItem;
+import com.edestudos.edestudos.entities.Payment;
 import com.edestudos.edestudos.entities.Product;
 import com.edestudos.edestudos.entities.User;
 import com.edestudos.edestudos.entities.enums.OrderStatus;
@@ -69,14 +70,18 @@ public class TestConfig implements CommandLineRunner {
         p3.getCategories().add(cat3);
         p4.getCategories().add(cat3);
         p5.getCategories().add(cat2);
-        
+
+        Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+        o1.setPayment(pay1);
+
         userRepository.saveAll(Arrays.asList(u1, u2));
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
         orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
-
+        orderRepository.save(o1);
+        
 
     };
 
